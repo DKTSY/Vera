@@ -21,6 +21,8 @@ class Vera_Database
 	private $mysql = NULL;
 	private $isConnected;
 
+    public static $lastSql = '';
+
 	const LIST_COM = 0;
     const LIST_AND = 1;
     const LIST_SET = 2;
@@ -47,6 +49,11 @@ class Vera_Database
         }
         return self::$instance;
 	}
+
+    public static function getLastSql()
+    {
+        return self::$lastSql;
+    }
 
 	/**
 	* @brief 查询接口
